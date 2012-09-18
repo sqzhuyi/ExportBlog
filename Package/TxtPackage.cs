@@ -1,12 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Text.RegularExpressions;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-
-//http://www.cnblogs.com/CareySon/archive/2011/11/07/2239017.html
 
 namespace ExportBlog
 {
@@ -121,9 +119,9 @@ namespace ExportBlog
             }
 
             string html = entity.Content;
-            html = reg_br.Replace(html, "\r\n");
+            html = reg_br.Replace(html, "\n");
             html = reg_html.Replace(html, string.Empty);
-            html = App.ToHtmlDecoded(html);
+            html = App.ToHtmlDecoded(html).Replace("\r", string.Empty).Replace("\n", "\r\n");
 
             return html;
         }
