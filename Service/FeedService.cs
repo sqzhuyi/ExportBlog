@@ -60,13 +60,16 @@ namespace ExportBlog
 
         public IList<FeedEntity> GetList()
         {
-            if (excep != null)
-            {
-                throw excep;
-            }
             if (_list == null)
             {
-                _list = service.GetList();
+                if (excep != null)
+                {
+                    _list = new List<FeedEntity>();
+                }
+                else
+                {
+                    _list = service.GetList();
+                }
             }
             return _list;
         }
