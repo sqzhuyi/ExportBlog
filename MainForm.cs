@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,13 +46,13 @@ namespace ExportBlog
                     break;
                 case Type.Url:
                     src = GetSourceByDomain();
-                    put.Text = src.ToString();
                     break;
                 case Type.Column:
                     src = Source.csdn;
                     break;
             }
             string user = put.Text;
+            if (put.Type == Type.Url) user = src.ToString();
             string title = App.GetDescription(src);
 
             FeedService fs = new FeedService(src, user);
