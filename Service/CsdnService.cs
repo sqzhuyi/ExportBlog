@@ -10,7 +10,7 @@ namespace ExportBlog
     {
         string url = null;
         Regex reg_title = new Regex(@"<span class=""link_title""><a href=""(.+?)"">([^<]+?)</a></span>", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-        Regex reg_con = new Regex(@"<div id=""article_content"" class=""article_content"">([\s\S]+)</div>\s*<div class=""share_buttons"" id=""sharePanel"">", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+        Regex reg_con = new Regex(@"<div id=""article_content"" class=""article_content"">([\s\S]+)</div>\s*<!-- Baidu Button BEGIN -->", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         
         WebUtility web = null;
 
